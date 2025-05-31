@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mounir Faheem - Portfolio</title>
+    <title>منير فهيم - معرض الأعمال</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Adding Arabic font support -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -16,7 +16,7 @@
     <style>
         /* ===== ROOT VARIABLES ===== */
         :root {
-            --theme-body-font-family: "Poppins";
+            --theme-body-font-family: "Cairo", sans-serif;
             --theme-primary-color: #111d4a;
             --theme-link-hover-color: #111d4a;
             --theme-secondary-color: #ffffff;
@@ -41,6 +41,7 @@
             line-height: 1.6;
             color: var(--theme-text-color);
             background-color: var(--theme-background-color);
+            text-align: right;
         }
         
         a {
@@ -65,11 +66,11 @@
             padding: 0 15px;
         }
         
-        /* ===== HEADER STYLES ===== */
+        /* RTL specific adjustments for header */
         .header {
             position: fixed;
             top: 0;
-            left: 0;
+            right: 0; /* Changed from left to right for RTL */
             width: 100%;
             z-index: 1000;
             background-color: transparent;
@@ -83,8 +84,8 @@
         }
         
         .header .container {
-					display: flex;
-					align-items: center;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
         }
         
@@ -109,12 +110,13 @@
         }
         
         .nav-menu li {
-            margin-left: 30px;
+            margin-right: 30px; /* Changed from margin-left to margin-right for RTL */
+            margin-left: 0;
         }
         
         .nav-menu a {
             color: var(--theme-text-color);
-					font-weight: 500;
+            font-weight: 500;
         }
         
         .nav-menu a:hover {
@@ -148,7 +150,7 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0; /* Changed for RTL */
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
@@ -175,17 +177,6 @@
             font-weight: 500;
         }
         
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 90vh;
-            z-index: 1;
-            opacity: 0.6;
-            display: none; /* Hide the old hero image */
-        }
-        
         /* ===== SECTION STYLES ===== */
         .section {
             padding: 100px 0;
@@ -203,7 +194,7 @@
         .section-title:after {
             content: '';
             position: absolute;
-            left: 0;
+            right: 0; /* Changed from left to right for RTL */
             bottom: -15px;
             width: 80px;
             height: 4px;
@@ -212,27 +203,18 @@
         
         /* About section specific styles */
         #about .section-title {
-            text-align: left;
+            text-align: right;
+
         }
         
         #about .section-title:after {
-            left: 0;
+            right: 0;
             transform: none;
         }
         
         #about .about-text {
-            text-align: left;
+            text-align: right;
             margin-top: 100px;
-        }
-        
-        /* Contact section specific styles */
-        #contact .section-title {
-            text-align: center;
-        }
-        
-        #contact .section-title:after {
-            left: 50%;
-            transform: translateX(-50%);
         }
         
         /* ===== ABOUT SECTION ===== */
@@ -284,15 +266,14 @@
             background-color: var(--theme-primary-color);
             top: 0;
             bottom: 0;
-            left: 50%;
-            margin-left: -3px;
+            right: 50%; /* Changed from left to right for RTL */
+            margin-right: -3px; /* Changed from margin-left to margin-right for RTL */
             opacity: 0.4;
         }
         
         .timeline-title {
             text-align: center;
             color: var(--theme-secondary-color);
-            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 36px;
             margin-bottom: 50px;
@@ -312,7 +293,7 @@
             position: absolute;
             width: 25px;
             height: 25px;
-            right: -12px;
+            left: -12px; /* Changed from right to left for RTL */
             top: 15px;
             border-radius: 50%;
             background-color: var(--theme-background-color);
@@ -321,15 +302,15 @@
         }
         
         .timeline-item:nth-child(odd) {
-            left: 0;
+            right: 0; /* Changed from left to right for RTL */
         }
         
         .timeline-item:nth-child(even) {
-            left: 50%;
+            right: 50%; /* Changed from left to right for RTL */
         }
         
         .timeline-item:nth-child(even)::after {
-            left: -12px;
+            right: -12px; /* Changed from left to right for RTL */
         }
         
         .timeline-content {
@@ -343,7 +324,6 @@
         }
         
         .timeline-date {
-            font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 20px;
             margin-bottom: 10px;
@@ -364,31 +344,32 @@
         
         .timeline-item.no-image .timeline-content {
             background: linear-gradient(145deg, var(--theme-background-alt), var(--theme-background-color));
-            border-left: 4px solid var(--theme-primary-color);
+            border-right: 4px solid var(--theme-primary-color); /* Changed from border-left to border-right for RTL */
         }
         
+        /* Responsive adjustments for timeline in RTL */
         @media screen and (max-width: 768px) {
             .about-intro {
                 grid-template-columns: 1fr;
             }
             
             .timeline-container::after {
-                left: 31px;
+                right: 31px; /* Changed from left to right for RTL */
             }
             
             .timeline-item {
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+                padding-right: 70px; /* Changed from padding-left to padding-right for RTL */
+                padding-left: 25px; /* Changed from padding-right to padding-left for RTL */
             }
             
             .timeline-item:nth-child(even) {
-                left: 0;
+                right: 0; /* Changed from left to right for RTL */
             }
             
             .timeline-item:nth-child(odd)::after,
             .timeline-item:nth-child(even)::after {
-                left: 19px;
+                right: 19px; /* Changed from left to right for RTL */
             }
         }
         
@@ -425,7 +406,7 @@
         .artwork-overlay {
             position: absolute;
             bottom: 0;
-            left: 0;
+            right: 0; /* Changed from left to right for RTL */
             width: 100%;
             padding: 20px;
             background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
@@ -544,10 +525,11 @@
         
         .contact-form .form-group {
             margin-bottom: 20px;
+            text-align: right;
         }
         
         .contact-form label {
-        display: block;
+            display: block;
             margin-bottom: 5px;
             font-weight: 500;
             color: var(--theme-secondary-color);
@@ -563,6 +545,7 @@
             font-size: 16px;
             background-color: var(--theme-background-color);
             color: var(--theme-text-color);
+            text-align: right;
         }
         
         .contact-form textarea {
@@ -585,7 +568,7 @@
         }
         
         .btn:hover {
-            background-color: #1d4f55;
+            background-color: #0a1535;
         }
         
         /* ===== FOOTER ===== */
@@ -674,19 +657,19 @@
             .nav-menu {
                 position: fixed;
                 top: 80px;
-                right: -100%;
+                left: -100%; /* Changed from right to left for RTL */
                 width: 250px;
                 height: calc(100vh - 80px);
                 background-color: var(--theme-background-color);
                 flex-direction: column;
                 gap: 0;
                 padding: 20px 0;
-                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
-                transition: right 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Adjusted for RTL */
+                transition: left 0.3s ease; /* Changed from right to left for RTL */
             }
             
             .nav-menu.active {
-                right: 0;
+                left: 0; /* Changed from right to left for RTL */
             }
             
             .nav-menu li {
@@ -722,22 +705,32 @@
                 font-size: 32px;
             }
         }
+        
+        /* Contact section specific styles */
+        #contact .section-title {
+            text-align: center;
+        }
+        
+        #contact .section-title:after {
+            right: 50%;
+            transform: translateX(50%);
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo"><img src="images/logo.png" alt="Mounir Faheem Logo"></div>
+            <div class="logo"><img src="images/logo.png" alt="شعار منير فهيم"></div>
             <button class="mobile-nav-toggle">☰</button>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#artworks">Artworks</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="javascript:switchToArabic();" class="lang-switch">العربية</a></li>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">نبذة</a></li>
+                <li><a href="#timeline">الخط الزمني</a></li>
+                <li><a href="#artworks">الأعمال الفنية</a></li>
+                <li><a href="#news">الإرث والتقدير</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="javascript:switchToEnglish();" class="lang-switch">English</a></li>
             </ul>
         </div>
     </header>
@@ -746,8 +739,8 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Mounir Faheem</h1>
-                <p>Visual Artist & Illustrator</p>
+                <h1>منير فهيم</h1>
+                <p>فنان تشكيلي ورسام</p>
             </div>
         </div>
     </section>
@@ -755,104 +748,103 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Mounir Faheem</h2>
+            <h2 class="section-title">نبذة عن منير فهيم</h2>
             
             <div class="about-content">
                 <div class="about-intro">
                     <div class="about-text">
-                        <p>Mounir Faheem was a celebrated Egyptian painter born in Rashid in 1935. Raised in Upper Egypt, his early years in Edfu and Aswan deeply influenced his art, infusing it with pharaonic symbols, Nubian culture, and the timeless beauty of the Nile.</p>
-                        <p>A prodigious talent, he was drawing with precision by age six. After graduating from Cairo's Faculty of Fine Arts in 1962, he opened his own gallery in Alexandria and gained recognition through national and international exhibitions, from Cairo to Madrid.</p>
-                        <p>Blending figurative style with cultural symbolism, Faheem created over 700 portraits. He passed away in 1983 in Alexandria, leaving behind a legacy rooted in Egyptian identity and artistic depth.</p>
+                        <p>منير فهيم هو رسام مصري شهير ولد في رشيد عام 1935. نشأ في صعيد مصر، وقد أثرت سنواته الأولى في إدفو وأسوان بعمق على فنه، حيث غمرته بالرموز الفرعونية والثقافة النوبية وجمال النيل الخالد.</p>
+                        <p>كان موهبة استثنائية، حيث كان يرسم بدقة في سن السادسة. بعد تخرجه من كلية الفنون الجميلة بالقاهرة عام 1962، افتتح معرضه الخاص في الإسكندرية واكتسب شهرة من خلال المعارض الوطنية والدولية، من القاهرة إلى مدريد.</p>
+                        <p>مزج فهيم بين الأسلوب التصويري والرمزية الثقافية، وأنشأ أكثر من 700 بورتريه. توفي عام 1983 في الإسكندرية، تاركًا وراءه إرثًا متجذرًا في الهوية المصرية والعمق الفني.</p>
                     </div>
                     <div class="about-image">
-                        <!-- Replace with portrait of Mounir Faheem -->
-                        <img src="images/mounir.jpeg" alt="Mounir Faheem">
+                        <img src="images/mounir.jpeg" alt="منير فهيم">
                     </div>
                 </div>
                 
-                <h2 class="timeline-title">Key Dates – Mounir Faheem (1935–1983)</h2>
+                <h2 class="timeline-title">تواريخ هامة – منير فهيم (1935–1983)</h2>
                 
                 <div id="timeline" class="timeline-container">
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <div class="timeline-date">June 26, 1935</div>
-                            <div class="timeline-text">Born in Rashid (Rosetta), Beheira Governorate, Egypt.</div>
-                            <img src="images/mounir3.jpeg" alt="Rashid, Egypt" class="timeline-image">
+                            <div class="timeline-date">26 يونيو 1935</div>
+                            <div class="timeline-text">ولد في رشيد (رشيد)، محافظة البحيرة، مصر.</div>
+                            <img src="images/mounir3.jpeg" alt="رشيد، مصر" class="timeline-image">
                         </div>
                     </div>
                     
                     <div class="timeline-item no-image">
                         <div class="timeline-content">
-                            <div class="timeline-date">1940s</div>
-                            <div class="timeline-text">Spent childhood in Edfu and Aswan, deeply influenced by Upper Egypt's culture and landscapes.</div>
+                            <div class="timeline-date">الأربعينيات</div>
+                            <div class="timeline-text">قضى طفولته في إدفو وأسوان، وتأثر بعمق بثقافة ومناظر صعيد مصر.</div>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-date">1949</div>
-                            <div class="timeline-text">Received primary certificate near Kom Ombo (north of Aswan).</div>
-                            <img src="images/kom.png" alt="Early education" class="timeline-image">
+                            <div class="timeline-text">حصل على الشهادة الابتدائية بالقرب من كوم أمبو (شمال أسوان).</div>
+                            <img src="images/kom.png" alt="التعليم المبكر" class="timeline-image">
                         </div>
                     </div>
                     
                     <div class="timeline-item no-image">
                         <div class="timeline-content">
-                            <div class="timeline-date">Early 1950s</div>
-                            <div class="timeline-text">Attended high school in Beni Suef and earned his baccalaureate at Al-Nil AlAmiria High School.</div>
+                            <div class="timeline-date">أوائل الخمسينيات</div>
+                            <div class="timeline-text">التحق بالمدرسة الثانوية في بني سويف وحصل على البكالوريا في مدرسة النيل الأميرية الثانوية.</div>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-date">1962</div>
-                            <div class="timeline-text">Graduated from the Faculty of Fine Arts, Cairo.</div>
-                            <img src="images/mounir5.JPG" alt="Graduation" class="timeline-image">
+                            <div class="timeline-text">تخرج من كلية الفنون الجميلة، القاهرة.</div>
+                            <img src="images/mounir5.JPG" alt="التخرج" class="timeline-image">
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-date">1965</div>
-                            <div class="timeline-text">Opened his own gallery in Alexandria.</div>
-                            <img src="images/mounir2.jpeg" alt="Alexandria gallery" class="timeline-image">
+                            <div class="timeline-text">افتتح معرضه الخاص في الإسكندرية.</div>
+                            <img src="images/mounir2.jpeg" alt="معرض الإسكندرية" class="timeline-image">
                         </div>
                     </div>
                     
                     <div class="timeline-item no-image">
                         <div class="timeline-content">
                             <div class="timeline-date">1970</div>
-                            <div class="timeline-text">First exhibition in Cairo, covered by the press. Also participated in a prestigious group show at Palestine Hotel in Alexandria, attended by King Hussein of Jordan.</div>
+                            <div class="timeline-text">أول معرض في القاهرة، غطته الصحافة. كما شارك في معرض جماعي مرموق في فندق فلسطين بالإسكندرية، حضره الملك حسين ملك الأردن.</div>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <div class="timeline-date">1970s</div>
-                            <div class="timeline-text">Exhibited at El Shams Club in Heliopolis; his work was acquired by the Egyptian Ministry of Tourism.</div>
-                            <img src="images/mounir6.jpg" alt="Artwork from the 1970s" class="timeline-image">
+                            <div class="timeline-date">السبعينيات</div>
+                            <div class="timeline-text">عرض في نادي الشمس في مصر الجديدة؛ واقتنت وزارة السياحة المصرية أعماله.</div>
+                            <img src="images/mounir6.jpg" alt="أعمال فنية من السبعينيات" class="timeline-image">
                         </div>
                     </div>
                     
                     <div class="timeline-item no-image">
                         <div class="timeline-content">
-                            <div class="timeline-date">1970s–80s</div>
-                            <div class="timeline-text">Exhibited internationally (including in Madrid and Austria); produced over 700 portraits.</div>
+                            <div class="timeline-date">السبعينيات والثمانينيات</div>
+                            <div class="timeline-text">عرض دولياً (بما في ذلك في مدريد والنمسا)؛ أنتج أكثر من 700 بورتريه.</div>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <div class="timeline-date">March 2, 1983</div>
-                            <div class="timeline-text">Passed away in his Alexandria apartment.</div>
-                            <img src="images/mounir4.jpeg" alt="Memorial" class="timeline-image">
+                            <div class="timeline-date">2 مارس 1983</div>
+                            <div class="timeline-text">توفي في شقته بالإسكندرية.</div>
+                            <img src="images/mounir4.jpeg" alt="النصب التذكاري" class="timeline-image">
                         </div>
                     </div>
                     
                     <div class="timeline-item no-image">
                         <div class="timeline-content">
                             <div class="timeline-date">2019</div>
-                            <div class="timeline-text">His painting 'Two Nubian Girls' sold at Bonhams.</div>
+                            <div class="timeline-text">بيعت لوحته "فتاتان نوبيتان" في دار بونهامز للمزادات.</div>
                         </div>
                     </div>
                 </div>
@@ -863,90 +855,90 @@
     <!-- Artworks Section -->
     <section id="artworks" class="section artworks-section">
         <div class="container">
-            <h2 class="section-title">Artworks</h2>
+            <h2 class="section-title">الأعمال الفنية</h2>
             <div class="artworks-grid">
                 <div class="artwork-item">
-                    <img src="images/art 1.jpeg" alt="Artwork 1">
+                    <img src="images/art 1.jpeg" alt="عمل فني 1">
                     <div class="artwork-overlay">
-                        <h3 class="artwork-title">Doves and Decanters</h3>
-                        <p class="artwork-category">Oil on Canvas</p>
-		</div>
-	</div>
+                        <h3 class="artwork-title">الحمام والقوارير</h3>
+                        <p class="artwork-category">زيت على قماش</p>
+                    </div>
+                </div>
                 <div class="artwork-item">
-                    <img src="images/art 2.jpg" alt="Artwork 2">
+                    <img src="images/art 2.jpg" alt="عمل فني 2">
                     <div class="artwork-overlay">
-                        <h3 class="artwork-title">Portrait of a Lady in Florals</h3>
-                        <p class="artwork-category">Oil on Canvas</p>
-		</div>
-	</div>
+                        <h3 class="artwork-title">بورتريه سيدة مع زهور</h3>
+                        <p class="artwork-category">زيت على قماش</p>
+                    </div>
+                </div>
                 <div class="artwork-item">
-                    <img src="images/art 3.jpeg" alt="Artwork 3">
+                    <img src="images/art 3.jpeg" alt="عمل فني 3">
                     <div class="artwork-overlay">
-                        <h3 class="artwork-title">Morning Ritual</h3>
-                        <p class="artwork-category">Charcoal on Paper</p>
-		</div>
-	</div>
+                        <h3 class="artwork-title">طقوس الصباح</h3>
+                        <p class="artwork-category">فحم على ورق</p>
+                    </div>
+                </div>
                 <div class="artwork-item">
-                    <img src="images/art 4.jpg" alt="Artwork 4">
+                    <img src="images/art 4.jpg" alt="عمل فني 4">
                     <div class="artwork-overlay">
-                        <h3 class="artwork-title">Contemplative Beauty</h3>
-                        <p class="artwork-category">Oil on Canvas</p>
-		</div>
-	</div>
+                        <h3 class="artwork-title">جمال التأمل</h3>
+                        <p class="artwork-category">زيت على قماش</p>
+                    </div>
+                </div>
                 <div class="artwork-item">
-                    <img src="images/art 5.jpg" alt="Artwork 5">
+                    <img src="images/art 5.jpg" alt="عمل فني 5">
                     <div class="artwork-overlay">
-                        <h3 class="artwork-title">Sisterly Embrace</h3>
-                        <p class="artwork-category">Figurative Art</p>
-		</div>
-	</div>
+                        <h3 class="artwork-title">عناق الأخوات</h3>
+                        <p class="artwork-category">فن تصويري</p>
+                    </div>
+                </div>
                 <div class="artwork-item">
-                    <img src="images/art 6.jpg" alt="Artwork 6">
+                    <img src="images/art 6.jpg" alt="عمل فني 6">
                     <div class="artwork-overlay">
-                        <h3 class="artwork-title">Sisters in Adornment</h3>
-                        <p class="artwork-category">Portrait Art</p>
-		</div>
-	</div>
-		</div>
-	</div>
+                        <h3 class="artwork-title">أخوات في الزينة</h3>
+                        <p class="artwork-category">فن البورتريه</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- News Section -->
     <section id="news" class="section">
         <div class="container">
-            <h2 class="section-title">Legacy & Recognition</h2>
+            <h2 class="section-title">الإرث والتقدير</h2>
             <div class="news-grid">
                 <div class="news-item">
                     <div class="news-image">
-                        <img src="images/1.png" alt="Retrospective Exhibition">
+                        <img src="images/1.png" alt="معرض استعادي">
                     </div>
                     <div class="news-content">
-                        <div class="news-date">March 2019</div>
-                        <h3 class="news-title">Retrospective Exhibition at Cairo Museum</h3>
-                        <p class="news-excerpt">A major retrospective "Mounir Faheem: Egyptian Identity Through Art" was held at the Cairo Museum of Modern Egyptian Art, featuring over 50 pieces from his prolific career.</p>
-                        <a href="https://egyptianmuseumcairo.eg/temporary-exhibitions/" class="read-more" id="link1">Read More</a>
+                        <div class="news-date">مارس 2019</div>
+                        <h3 class="news-title">معرض استعادي في متحف القاهرة</h3>
+                        <p class="news-excerpt">أقيم معرض استعادي كبير بعنوان "منير فهيم: الهوية المصرية من خلال الفن" في متحف الفن المصري الحديث بالقاهرة، ضم أكثر من 50 قطعة من مسيرته الإبداعية الحافلة.</p>
+                        <a href="https://egyptianmuseumcairo.eg/temporary-exhibitions/" class="read-more" id="link1">اقرأ المزيد</a>
                     </div>
                 </div>
                 <div class="news-item">
                     <div class="news-image">
-                        <img src="images/2.png" alt="Auction News">
+                        <img src="images/2.png" alt="أخبار المزاد">
                     </div>
                     <div class="news-content">
-                        <div class="news-date">November 2019</div>
-                        <h3 class="news-title">"Two Nubian Girls" Sold at Bonhams</h3>
-                        <p class="news-excerpt">Faheem's iconic painting "Two Nubian Girls" achieved a record price at Bonhams London, highlighting the growing international recognition of his significant contribution to Egyptian art.</p>
-                        <a href="https://www.bonhams.com/auction/27796/lot/78/munir-fahim-egypt-1935-1983-two-nubian-girls/" class="read-more" id="link2">Read More</a>
+                        <div class="news-date">نوفمبر 2019</div>
+                        <h3 class="news-title">بيع "فتاتان نوبيتان" في بونهامز</h3>
+                        <p class="news-excerpt">حققت لوحة فهيم الأيقونية "فتاتان نوبيتان" سعرًا قياسيًا في دار بونهامز بلندن، مما يؤكد الاعتراف الدولي المتزايد بمساهمته الكبيرة في الفن المصري.</p>
+                        <a href="https://www.bonhams.com/auction/27796/lot/78/munir-fahim-egypt-1935-1983-two-nubian-girls/" class="read-more" id="link2">اقرأ المزيد</a>
                     </div>
                 </div>
                 <div class="news-item">
                     <div class="news-image">
-                        <img src="images/3.png" alt="Book Publication">
+                        <img src="images/3.png" alt="نشر كتاب">
                     </div>
                     <div class="news-content">
-                        <div class="news-date">September 2021</div>
-                        <h3 class="news-title">New Biography Published</h3>
-                        <p class="news-excerpt">"The Art and Life of Mounir Faheem," a comprehensive biography authored by Dr. Nadia El-Sebai, explores the artist's influence on the Egyptian cultural renaissance of the mid-20th century.</p>
-                        <a href="https://www.mutualart.com/Artist/Munir-Fahim/256B8A10E040EF0B/Biography" class="read-more" id="link3">Read More</a>
+                        <div class="news-date">سبتمبر 2021</div>
+                        <h3 class="news-title">نشر سيرة ذاتية جديدة</h3>
+                        <p class="news-excerpt">"فن وحياة منير فهيم"، سيرة ذاتية شاملة من تأليف الدكتورة نادية السباعي، تستكشف تأثير الفنان على النهضة الثقافية المصرية في منتصف القرن العشرين.</p>
+                        <a href="https://www.mutualart.com/Artist/Munir-Fahim/256B8A10E040EF0B/Biography" class="read-more" id="link3">اقرأ المزيد</a>
                     </div>
                 </div>
             </div>
@@ -956,41 +948,41 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">تواصل معنا</h2>
             <div class="contact-content">
                 <div>
                     <div class="contact-info">
-                        <h3>Research & Inquiries</h3>
-                        <p>For information about Mounir Faheem's artwork, exhibition history, or scholarly research about his contributions to Egyptian art, please contact the Faheem Art Foundation using the form or contact details below.</p>
-                        <p><strong>Email:</strong> archive@faheemfoundation.org</p>
-                        <p><strong>Phone:</strong> +20 2 123 4567</p>
-                        <p><strong>Archive:</strong> Cairo Museum of Modern Egyptian Art, Gezira, Cairo, Egypt</p>
+                        <h3>البحث والاستفسارات</h3>
+                        <p>للحصول على معلومات حول أعمال منير فهيم الفنية، أو تاريخ المعارض، أو البحث العلمي حول مساهماته في الفن المصري، يرجى الاتصال بمؤسسة فهيم للفنون باستخدام النموذج أو تفاصيل الاتصال أدناه.</p>
+                        <p><strong>البريد الإلكتروني:</strong> archive@faheemfoundation.org</p>
+                        <p><strong>الهاتف:</strong> +20 2 123 4567</p>
+                        <p><strong>الأرشيف:</strong> متحف الفن المصري الحديث، الجزيرة، القاهرة، مصر</p>
                         
-                        <h3 style="margin-top: 30px;">Art Acquisitions</h3>
-                        <p>For inquiries regarding the acquisition of Mounir Faheem's artworks or for authentication services, please provide detailed information about the piece in question, including photographs if available.</p>
+                        <h3 style="margin-top: 30px;">اقتناء الأعمال الفنية</h3>
+                        <p>للاستفسارات المتعلقة باقتناء أعمال منير فهيم الفنية أو خدمات التوثيق، يرجى تقديم معلومات مفصلة عن القطعة المعنية، بما في ذلك الصور إن أمكن.</p>
                         
-                        <p style="margin-top: 30px;">The Faheem Foundation offers resources for researchers and educators interested in Mounir Faheem's artistic legacy and his contribution to Egypt's cultural heritage.</p>
+                        <p style="margin-top: 30px;">توفر مؤسسة فهيم موارد للباحثين والمعلمين المهتمين بالإرث الفني لمنير فهيم ومساهمته في التراث الثقافي المصري.</p>
                     </div>
                 </div>
                 <div>
                     <form class="contact-form" action="https://formspree.io/f/kenyodelma244@gmail.com" method="POST">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">الاسم</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">البريد الإلكتروني</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject">الموضوع</label>
                             <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message">الرسالة</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Inquiry</button>
+                        <button type="submit" class="btn">إرسال الاستفسار</button>
                     </form>
                 </div>
             </div>
@@ -1000,17 +992,17 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo"><img src="images/logo.png" alt="Mounir Faheem Logo"></div>
+            <div class="footer-logo"><img src="images/logo.png" alt="شعار منير فهيم"></div>
             <div class="social-links">
                 <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <p class="copyright">© 2023 Mounir Faheem. All Rights Reserved.</p>
+            <p class="copyright">© 2025 منير فهيم. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
-
+    
     <script>
         // JavaScript for sticky header
         window.addEventListener('scroll', function() {
@@ -1051,9 +1043,9 @@
         });
 
         // Add language switcher functionality
-        function switchToArabic() {
-            window.location.href = 'index-ar.html';
+        function switchToEnglish() {
+            window.location.href = 'index.html';
         }
     </script>
 </body>
-</html>
+</html> 
